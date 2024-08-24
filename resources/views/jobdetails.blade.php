@@ -89,6 +89,7 @@
                             <h4 class="mb-4">Apply For The Job</h4>
                             <form action="/UserApplyForJob" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="JobId" value="{{$Job->id}}">
                                 <div class="row g-3">
                                     <div class="col-12 col-sm-6">
                                         <input type="text" value="{{ old('UserName') }}" name="UserName"
@@ -112,13 +113,13 @@
                                         @enderror
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        <input type="file" value="{{old('UserCV')}}" name="UserCV" class="form-control bg-white">
+                                        <input type="file" accept=".pdf" value="{{old('UserCV')}}" name="UserCV" class="form-control bg-white">
                                         @error('UserCV')
                                             <p class="text-danger fw-bolder">{{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="col-12">
-                                        <textarea name="UserCoverLetter"  class="form-control" rows="5" placeholder="Coverletter">{{old("UserCoverLetter")}}</textarea>
+                                        <textarea name="UserCoverLetter"   class="form-control" rows="5" placeholder="Coverletter">{{old("UserCoverLetter")}}</textarea>
                                         @error('UserCoverLetter')
                                             <p class="text-danger fw-bolder">{{ $message }}</p>
                                         @enderror
@@ -156,6 +157,11 @@
             </div>
         </div>
         <!-- Job Detail End -->
+        @if (session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
 
 
         <!-- Footer Start -->

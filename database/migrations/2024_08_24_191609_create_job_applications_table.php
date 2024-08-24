@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('job_applications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("User_Id")->nullable(false);
             $table->unsignedBigInteger("Job_Id")->nullable(false);
+            $table->text("Name")->nullable();
+            $table->text("Email")->nullable();
             $table->text("Portfolio")->nullable();
             $table->text("CoverLetter")->nullable();
             $table->text("CV")->nullable();
 
-            $table->foreign("User_id")->references("id")->on("users");
             $table->foreign("Job_id")->references("id")->on("_jobs");
             $table->timestamps();
         });
