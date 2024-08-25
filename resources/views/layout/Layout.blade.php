@@ -34,15 +34,16 @@
 <body>
     @if (session('success'))
         <div class="alert alert-success">
-            <strong>{{session('success')}}</strong>
-        </div>
-        @endif
-        @if (session('alert'))
-        <div class="alert alert-danger">
-            <strong>{{session('alert')}}</strong>
+            a
+            <strong>{{ session('success') }}</strong>
         </div>
     @endif
-    
+    @if (session('alert'))
+        <div class="alert alert-danger">
+            <strong>{{ session('alert') }}</strong>
+        </div>
+    @endif
+
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner"
@@ -54,8 +55,8 @@
         <!-- Spinner End -->
 
         <!-- Navbar Start -->
-        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+        <nav class="navbar  navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="/" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 <h1 class="m-0 text-primary">JobEntry</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -80,12 +81,10 @@
                     </div>
                     <a href="/testimonial.html"
                         class="nav-item nav-link {{ Route::is('testimonial.html') ? 'active' : '' }}">Testimonial</a>
-                    <a href="/contact.html"
-                        class="nav-item nav-link {{ Route::is('contact.html') ? 'active' : '' }}">contact</a>
+
+                    <a href="/contact.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Contact Us
+                        <i class="fa fa-arrow-right ms-3"></i></a>
                 </div>
-                <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job
-                    <i class="fa fa-arrow-right ms-3"></i></a>
-            </div>
         </nav>
         <!-- Navbar End -->
         @yield('content')

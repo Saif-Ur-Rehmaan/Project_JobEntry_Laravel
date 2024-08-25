@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="container-xxl bg-white p-0">
-       
 
 
- 
+
+
 
 
         <!-- Header End -->
-        <x-breadcrumb linkArray="Home,contactus"/>
+        <x-breadcrumb linkArray="Home,contactus" />
         <!-- Header End -->
 
 
@@ -57,36 +57,44 @@
                     </div>
                     <div class="col-md-6">
                         <div class="wow fadeInUp" data-wow-delay="0.5s">
-                            <p class="mb-4">The contact form is currently inactive. Get a functional and working contact
-                                form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and
-                                you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                            <form>
+                            <form action="SendQuery" method="GET">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="name"
+                                            <input name="Name" value="{{old('Name')}}" type="text" class="form-control" id="name"
                                                 placeholder="Your Name">
+                                            @error('Name')
+                                                <span class="text-danger  fw-bold">{{ $message }} </span>
+                                            @enderror
                                             <label for="name">Your Name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email"
-                                                placeholder="Your Email">
+                                            <input name="Email" value="{{old('Email')}}" type="email" class="form-control" id="email"
+                                            placeholder="Your Email">
                                             <label for="email">Your Email</label>
+                                            @error('Email')
+                                                <span class="text-danger  fw-bold">{{ $message }} </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="subject"
-                                                placeholder="Subject">
+                                            <input name="Subject" value="{{old('Subject')}}" type="text" class="form-control" id="subject" placeholder="Subject">
                                             <label for="subject">Subject</label>
+                                            @error('Subject')
+                                                <span class="text-danger  fw-bold">{{ $message }} </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                                            <label for="message">Message</label>
+                                            <textarea name="Message" class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                            <label for="Message">{{old('Message')}}</label>
+                                            @error('Message')
+                                                <span class="text-danger  fw-bold">{{ $message }} </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">

@@ -44,5 +44,5 @@ Route::controller(JobsController::class)->group(function () {
 
 Route::controller(UsersController::class)->group(function (){
     // here User crud like login signup confirm paass,delete user etc come
-
+    Route::get("/SendQuery",'SendQuery');
 });
