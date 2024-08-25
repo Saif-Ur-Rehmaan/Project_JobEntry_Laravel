@@ -30,6 +30,7 @@ class JobFactory extends Factory
             'JobCompanyImage' => "https://picsum.photos/200/300", // Generates a paragraph for company details
             'JobCompanyDetail' => fake()->paragraph(), // Generates a paragraph for company details
             'JobQualification' => fake()->sentence(), // Generates a sentence for job qualifications
+            'Category_id' => fake()->randomElement(['1', '2', '3','4','5','6']), // Random job nature
         ];
     }
 }

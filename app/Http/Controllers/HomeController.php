@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function indexPage(){
+
+        
         return view('index');
     }
     public function AboutPage(){
@@ -19,6 +21,6 @@ class HomeController extends Controller
         return view('testimonial');
     }
     public function ContactUsPage(){
-        return view('testimonial');
+        return view('contactus');
     }
 }

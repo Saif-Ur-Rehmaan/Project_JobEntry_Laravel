@@ -19,27 +19,28 @@ use App\Models\User;
 
 Route::controller(HomeController::class)->group(function () {
     // here Other pages like about contact testimonial etc come
-    Route::get("/", 'IndexPage');
-    Route::get("/index.html", 'IndexPage');
-    Route::get("/about.html", 'AboutPage');
-    Route::get("/404.html", 'ErrorPage');
-    Route::get("/testimonial.html", 'TestimonialPage');
-    Route::get("/contact.html", 'ContactUsPage');
+    Route::get("/", 'IndexPage')->name("index.html");
+    Route::get("/index.html", 'IndexPage')->name("index.html");
+    Route::get("/about.html", 'AboutPage')->name("about.html");
+    Route::get("/404.html", 'ErrorPage')->name("404.html");
+    Route::get("/testimonial.html", 'TestimonialPage')->name("testimonial.html");
+    Route::get("/contact.html", 'ContactUsPage')->name("contact.html");
 });
 Route::controller(JobsController::class)->group(function () {
     // can be used To Perform CRUD in  jobs table
+    Route::get('/job-list.html', 'JoblistPage');
+    Route::get('/job-detail.html/{id}', 'JobDetailsPage');
+    Route::get("/jobs/{CategoryName}","JobListFilterByCategoryNamePage")->whereAlpha("CategoryName");
+    Route::get("/SearchJobs",'JobListFilterBySearchPage');
     
-    Route::get('/job-list.html', 'JobListPage');
-    Route::get('/job-detail.html/{id}', 'JobDetailsPage')->whereNumber("id");
+
+
     Route::get('/category.html', 'JobCategoryPage');
-
-});
-Route::controller(JobApplicaionsController::class)->group(function (){
-    // used To Perform CRUD in  job_applications table
-
+    Route::get('/category.html', 'JobCategoryPage');
     // User ApplyForJob
     Route::post("/UserApplyForJob",'UserApplyForJob');
-});
+
+}); 
 
 Route::controller(UsersController::class)->group(function (){
     // here User crud like login signup confirm paass,delete user etc come

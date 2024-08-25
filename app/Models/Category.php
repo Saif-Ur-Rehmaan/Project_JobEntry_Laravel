@@ -11,6 +11,6 @@ class Category extends Model
     protected $table='_categories';
     protected $fillable=[
         'name',
-        'image'
+        'SvgIcon'
     ];
 }
