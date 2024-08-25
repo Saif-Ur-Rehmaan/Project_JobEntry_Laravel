@@ -34,7 +34,7 @@
 <body>
     @if (session('success'))
         <div class="alert alert-success">
-            a
+            
             <strong>{{ session('success') }}</strong>
         </div>
     @endif
